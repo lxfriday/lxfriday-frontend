@@ -1,4 +1,4 @@
-# front end learning experience Notes
+# Front End Learning Experience Notes
 - React
 - ReactNative
 - Javascript
