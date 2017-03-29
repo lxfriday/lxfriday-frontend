@@ -1,1 +1,6 @@
-前端学习笔记
+# front end learning experience Notes
+- React
+- ReactNative
+- Javascript
+- Html
+- CSS3
