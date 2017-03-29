@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件自定义上传测试</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+<body>
+	<form action="http://upload.qiniu.com" method="POST" enctype="multipart/form-data" id="form">
+		key: <input name="key" type="text" value="///nnnnnnnnnnnn.jpg"> <br>
+		addInfo: <input name="x:addInfo" type="text" value="我是额外的信息"> <br>
+		token: <input name="token" type="text" value="zlvMwqEQx1Yir9urPO0cwCAUt-7PMXUJWZnRY35S:OOE9UY7UOyf9U36zJug_Gh7bNlI=:eyJpbnNlcnRPbmx5IjoxLCJmc2l6ZUxpbWl0Ijo1MjQyODgwMCwibWltZUxpbWl0IjoiaW1hZ2VcLyoiLCJyZXR1cm5Cb2R5Ijoie1wibmFtZVwiOlwiJChmbmFtZSlcIixcInNpemVcIjpcXCIsXCJtaW1lVHlwZVwiOlwiJChtaW1lVHlwZSlcIixcImFkZEluZm9cIjpcIiQoeDphZGRJbmZvKVwifSIRzIjpbImh0dHA6XC9cL3VwLnFpbml1LmNvbSIsImh0dHA6XC9cL3VwbG9hZC5xaW5pdS5jb20iLCItSCB1cC5xaW5pdS5jb20gaHR0cDpcL1wvMTgzLjEzNi4xMzkuMTYiXX0=" id="token"> <br>
+		file: <input name="file" type="file"> <br>
+		<input type="submit" value="提交">
+	</form>
+	<button id="submit">提交</button>
+	<script>
+		jQuery(document).ready(function($) {
+			$('#submit').on('click', function(event) {
+				event.preventDefault();
+				const form = new FormData($('#form')[0]);
+				$.ajax({
+					url: 'http://upload.qiniu.com',
+					type: 'POST',
+					processData: false,
+					contentType: false,
+					cache: false,
+					data: form,
+				})
+				.done(function(responseText) {
+					console.log("success");
+					console.log(responseText);
+
+				})
+				.fail(function() {
+					console.log("error");
+				})
+				.always(function() {
+					console.log("complete");
+				});
+				
+			});
+		});
+	</script>
+</body>
+</html>
