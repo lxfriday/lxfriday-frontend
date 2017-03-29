@@ -23,8 +23,8 @@
 				$.ajax({
 					url: 'http://upload.qiniu.com',
 					type: 'POST',
-					processData: false,
-					contentType: false,
+					processData: false,//不能少,不对表单数据进行处理，否则会出现内部错误
+          contentType: false,//不能少,否则会报request Content-Type isn't multipart/form-data but application/x-www-form-urlencoded
 					cache: false,
 					data: form,
 				})

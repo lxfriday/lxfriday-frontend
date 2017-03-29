@@ -56,70 +56,13 @@ $token = $auth->uploadToken('你的Bucket名，在对象存储中获得', null, 
 **POST上传**
 > 分析表单的上传过程，**POST**，**请求地址**，**编码方式**，**key**，**token**，**file** 
 
-```html
-<form method="post" action="http://upload.qiniu.com/" enctype="multipart/form-data">
-  <input name="key" type="hidden" value="我想要一个新的名字.jpg"> <!-- 自定义上传的key -->
-  <input name="x:location" type="hidden" value="Shanghai"> <!-- 自定义变量的行为同魔法变量基本一致，但变量名必须以x:开始。 -->
-  <input name="x:price" type="hidden" value="1500.00"> <!-- 可有可无 -->
-  <input name="token" type="hidden" value="zlvMwqEQx1Yir9urPO0cwCAUt-7PMXUJWZnRY35S:OOE9UY7UOyf9U36zJug_Gh7bNlI=:eyJpbnNlcnRPbmx5IjoxLCJmc2l6ZUxpbWl0Ijo1MjQyODgwMCwibWltZUxpbWl0IjoiaW1hZ2VcLyoiLCJyZXR1cm5Cb2R5Ijoie1wibmFtZVwiOlwiJChmbmFtZSlcIixcInNpemVcIjpcXCIsXCJtaW1lVHlwZVwiOlwiJChtaW1lVHlwZSlcIixcImFkZEluZm9cIjpcIiQoeDphZGRJbmZvKVwifSIRzIjpbImh0dHA6XC9cL3VwLnFpbml1LmNvbSIsImh0dHA6XC9cL3VwbG9hZC5xaW5pdS5jb20iLCItSCB1cC5xaW5pdS5jb20gaHR0cDpcL1wvMTgzLjEzNi4xMzkuMTYiXX0="> <!-- 必须 -->
-  <input name="file" type="file" /> <!-- 必须 -->
-</form>
-```
-
-**使用jquery上传文件到七牛(token是从服务器端请求到的)**
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>文件自定义上传测试</title>
-  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-</head>
-<body>
-  <form action="http://upload.qiniu.com" method="POST" enctype="multipart/form-data" id="form">
-    key: <input name="key" type="text" value="///nnnnnnnnnnnn.jpg"> <br>
-    addInfo: <input name="x:addInfo" type="text" value="我是额外的信息"> <br>
-    token: <input name="token" type="text" value="zlvMwqEQx1Yir9urPO0cwCAUt-7PMXUJWZnRY35S:OOE9UY7UOyf9U36zJug_Gh7bNlI=:eyJpbnNlcnRPbmx5IjoxLCJmc2l6ZUxpbWl0Ijo1MjQyODgwMCwibWltZUxpbWl0IjoiaW1hZ2VcLyoiLCJyZXR1cm5Cb2R5Ijoie1wibmFtZVwiOlwiJChmbmFtZSlcIixcInNpemVcIjpcXCIsXCJtaW1lVHlwZVwiOlwiJChtaW1lVHlwZSlcIixcImFkZEluZm9cIjpcIiQoeDphZGRJbmZvKVwifSIRzIjpbImh0dHA6XC9cL3VwLnFpbml1LmNvbSIsImh0dHA6XC9cL3VwbG9hZC5xaW5pdS5jb20iLCItSCB1cC5xaW5pdS5jb20gaHR0cDpcL1wvMTgzLjEzNi4xMzkuMTYiXX0=" id="token"> <br>
-    file: <input name="file" type="file"> <br>
-  </form>
-  <button id="submit">提交</button>
-   <script>
-    jQuery(document).ready(function($) {
-      $('#submit').on('click', function(event) {
-        event.preventDefault();
-        //FormData
-        const form = new FormData($('#form')[0]);
-        //具体的配置在下面的文章中有介绍
-        $.ajax({
-          url: 'http://upload.qiniu.com',
-          type: 'POST',
-          processData: false,//不能少,不对表单数据进行处理，否则会出现内部错误
-          contentType: false,//不能少,否则会报request Content-Type isn't multipart/form-data but application/x-www-form-urlencoded
-          cache: false,
-          data: form,
-        })
-        .done(function(responseText) {
-          console.log("success");
-          console.log(responseText);
-        })
-        .fail(function() {
-          console.log("error");
-        })
-        .always(function() {
-          console.log("complete");
-        });
-    });
-   });
-  </script>
-</body>
-</html>
-
-```
- 
+### Demo
+1. [表单提交](https://github.com/lxfriday/lxfriday-frontend/blob/master/Upload/QiniuUploadDemo.html) 
+2. [表单提交](https://github.com/lxfriday/lxfriday-frontend/blob/master/Upload/QiniuUploadDemo.html) 
+3. [表单提交](https://github.com/lxfriday/lxfriday-frontend/blob/master/Upload/QiniuUploadDemo.html) 
 
 
-
+## 相关
 - [通过jQuery Ajax使用FormData对象上传文件](http://www.jianshu.com/p/46e6e03a0d53)
 - [七牛对象存储文档](https://developer.qiniu.com/kodo)
 - [js-sdk说明](https://developer.qiniu.com/kodo/sdk/javascript)
