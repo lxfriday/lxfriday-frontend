@@ -120,7 +120,7 @@ $token = $auth->uploadToken('你的Bucket名，在对象存储中获得', null, 
 
 
 
-
+- [通过jQuery Ajax使用FormData对象上传文件](http://www.jianshu.com/p/46e6e03a0d53)
 - [七牛对象存储文档](https://developer.qiniu.com/kodo)
 - [js-sdk说明](https://developer.qiniu.com/kodo/sdk/javascript)
 - [上传策略](https://developer.qiniu.com/kodo/manual/put-policy)
