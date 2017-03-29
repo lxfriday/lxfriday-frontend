@@ -63,13 +63,11 @@ $token = $auth->uploadToken('你的Bucket名，在对象存储中获得', null, 
   <input name="x:price" type="hidden" value="1500.00"> <!-- 可有可无 -->
   <input name="token" type="hidden" value="zlvMwqEQx1Yir9urPO0cwCAUt-7PMXUJWZnRY35S:OOE9UY7UOyf9U36zJug_Gh7bNlI=:eyJpbnNlcnRPbmx5IjoxLCJmc2l6ZUxpbWl0Ijo1MjQyODgwMCwibWltZUxpbWl0IjoiaW1hZ2VcLyoiLCJyZXR1cm5Cb2R5Ijoie1wibmFtZVwiOlwiJChmbmFtZSlcIixcInNpemVcIjpcXCIsXCJtaW1lVHlwZVwiOlwiJChtaW1lVHlwZSlcIixcImFkZEluZm9cIjpcIiQoeDphZGRJbmZvKVwifSIRzIjpbImh0dHA6XC9cL3VwLnFpbml1LmNvbSIsImh0dHA6XC9cL3VwbG9hZC5xaW5pdS5jb20iLCItSCB1cC5xaW5pdS5jb20gaHR0cDpcL1wvMTgzLjEzNi4xMzkuMTYiXX0="> <!-- 必须 -->
   <input name="file" type="file" /> <!-- 必须 -->
-  
 </form>
 ```
 
-
-
 **使用jquery上传文件到七牛(token是从服务器端请求到的)**
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -90,12 +88,14 @@ $token = $auth->uploadToken('你的Bucket名，在对象存储中获得', null, 
     jQuery(document).ready(function($) {
       $('#submit').on('click', function(event) {
         event.preventDefault();
+        //FormData
         const form = new FormData($('#form')[0]);
+        //具体的配置在下面的文章中有介绍
         $.ajax({
           url: 'http://upload.qiniu.com',
           type: 'POST',
-          processData: false,
-          contentType: false,
+          processData: false,//不能少,不对表单数据进行处理，否则会出现内部错误
+          contentType: false,//不能少,否则会报request Content-Type isn't multipart/form-data but application/x-www-form-urlencoded
           cache: false,
           data: form,
         })

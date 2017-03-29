@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件自定义上传测试</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+<body>
+	<h1>纯FormData提交</h1>
+	file: <input name="file" type="file" id="file"> <br>
+	<button id="submit">提交</button>
+	<script>
+		jQuery(document).ready(function($) {
+			$('#submit').on('click', function(event) {
+				event.preventDefault();
+				const form = new FormData();
+				form.append('key', '///nnnnnnnfsfdsdffdsfsfnnnn.jpg')
+				form.append('token', 'zlvMwqEQx1Yir9urPO0cwCAUt-7PMXUJWZnRY35S:FXAKlqBizp1U-X0H8OX8-4tTlLc=:eyJpbnNlcnRPbmx5IjoxLCJmc2l6ZUxpbWl0Ijo1MjQyODgwMCwibWltZUxpbWl0IjoiaW1hZ2VcLyoiLCJyZXR1cm5Cb2R5Ijoie1wibmFtZVwiOlwiJChmbmFtZSlcIixcInNpemVcIjpcIiQoZnNpemUpXCIsXCJ3XCI6XCIkKGltYWdlSW5mby53aWR0aClcIixcImhcIjpcIiQoaW1hZ2VJbmZvLmhlaWdodClcIixcImhhc2hcIjpcIiQoZXRhZylcIixcImtleVwiOlwiJChrZXkpXCIsXCJtaW1lVHlwZVwiOlwiJChtaW1lVHlwZSlcIixcImFkZEluZm9cIjpcIiQoeDphZGRJbmZvKVwifSIsInNjb3BlIjoic3RvcmFnZSIsImRlYWRsaW5lIjoxNDkwNzYzOTgxLCJ1cEhvc3RzIjpbImh0dHA6XC9cL3VwLnFpbml1LmNvbSIsImh0dHA6XC9cL3VwbG9hZC5xaW5pdS5jb20iLCItSCB1cC5xaW5pdS5jb20gaHR0cDpcL1wvMTgzLjEzNi4xMzkuMTYiXX0=')
+				form.append('file', $('#file')[0].files[0])//$('#file')[0].files 是 FileList 是一个数组
+				$.ajax({
+					url: 'http://upload.qiniu.com',
+					type: 'POST',
+					processData: false,
+					contentType: false,
+					cache: false,
+					data: form,
+				})
+				.done(function(responseText) {
+					console.log("success");
+					console.log(responseText);
+
+				})
+				.fail(function() {
+					console.log("error");
+				})
+				.always(function() {
+					console.log("complete");
+				});
+				
+			});
+		});
+	</script>
+</body>
+</html>
