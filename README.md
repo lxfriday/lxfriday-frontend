@@ -2,12 +2,10 @@
 
 **最好的学习方式是自己去模拟实现，自己把不懂的敲一遍!**
 
-#### 牛人博客
-
+1. [模拟实现](https://github.com/lxfriday/lxfriday-frontend/tree/master/implementation)
+1. [HISTORY_ARTICLES](https://github.com/lxfriday/lxfriday-frontend/blob/master/HISTORY_ARTICLES.md)
 1. [牛人博客清单](https://github.com/lxfriday/lxfriday-frontend/blob/master/EXPERTS_BLOG.md)
-
 1. [面试](https://github.com/lxfriday/lxfriday-frontend/tree/master/interview)
-
 1. [必读书目](https://github.com/lxfriday/lxfriday-frontend/blob/master/BOOKS.md)
 
 #### 技术
