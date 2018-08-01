@@ -1,19 +1,20 @@
 /**
- * 模拟实现 call 方法
+ * 模拟实现 call 方法，(浏览器环境)
  * @param {*} ctx
  */
 Function.prototype.call2 = function(ctx) {
-  if (!ctx) {
-    ctx = global;
-  }
+  ctx = ctx || window;
   const args = [];
-  let len = 0;
-  for (let i = 1, len = arguments.length; i < len; i++) {
+  for (let i = 1; i < arguments.length; i++) {
     args.push(`arguments[${i}]`);
   }
 
   // 把当前函数挂到ctx上
   ctx.fn = this;
+
+  // eval("ctx.fn('arguments[1],arguments[1], ...)")
+  // 如果是 eval("ctx.fn('lxfriday,111')") 会报错，实际执行时变成了 ctx.fn(lxfriday, 111)
+  // 其中的 lxfriday 是一个未定义的变量
 
   const result = eval(`ctx.fn(${args})`);
 
@@ -24,7 +25,8 @@ Function.prototype.call2 = function(ctx) {
   return result;
 };
 
-global.value = 'global value';
+// 如果变量定义成 const value = 'global ...' // this.value将会变成 undefined
+var value = 'global value';
 
 function bar(name, age) {
   return {
