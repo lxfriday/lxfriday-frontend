@@ -10,11 +10,15 @@
 function objectFactory() {
   var obj = new Object();
 
-  // arguments中删除的即为返回的是第一个，即为构造函数。
+  // arguments中删除的即为返回的是第一个，即为构造函数
   var Constructor = [].shift.call(arguments);
 
-
+  // 注意：以下的1、2步骤的顺序不能换，要先将obj对象的原型指向构造函数的原型，再将其作为this调用构造函数
+  // 顺序颠倒之后：在构造函数调用的时候，无法访问到原型链上的属性
+  // 1、先将生成的对象的原型更改到指向构造函数的原型
   obj.__proto__ = Constructor.prototype;
+
+  // 2、再给与参数和this执行构造函数
 
   var result = Constructor.apply(obj, arguments);
 
@@ -25,6 +29,9 @@ function Person(name, sex) {
   this.name = name;
   this.sex = sex;
 
+  console.log('this.language => ', this.language);
+  
+
   this.type = 'human';
 }
 
@@ -34,5 +41,4 @@ Person.prototype.sayYourName = function() {
 }
 
 var newObj = objectFactory(Person, 'lxfriday', 'male');
-console.log(Object.getPrototypeOf(newObj));
-console.log(new Person('lxfriday', 'male').name);
+new Person('lxfriday', 'male')
