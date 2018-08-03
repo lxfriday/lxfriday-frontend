@@ -1,5 +1,14 @@
 # 继承的多种方式以及优缺点
 
+评价的方面：
+
+1. 原型链的属性是否会因为某个实例更改而影响到其他实例
+1. 构造函数是否会重复调用
+1. 原型方法是否会在创建实例的时候每次都创建
+
+
+类型
+
 1. [原型链继承](#1)
 1. [借用构造函数继承](#2)
 1. [组合继承](#3)
@@ -62,6 +71,7 @@ console.log(child1 instanceof Child);
 
 var child2 = new Child();
 
+// ["lxfriday"]
 console.log(child2.names);
 
 ```
@@ -74,6 +84,7 @@ console.log(child2.names);
 缺点
 
 1. 方法也都定义在了构造函数中，每次生成实例会都重复创建方法
+1. 无法使用父类的原型方法和属性
 
 ## 3、[组合继承](#3)
 
@@ -122,7 +133,7 @@ console.log(child2.colors);
 
 ```js
 
-
+// 就是 ES5 Object.create 的模拟实现，将传入的对象作为创建的对象的原型。
 function createObj(o) {
   function F() {};
   F.prototype = o;
@@ -143,6 +154,10 @@ console.log(person2.name); // lxfriday
 person1.friends.push('Taylor');
 console.log(person2.friends); // ['Jim', 'Daisy', 'Taylor']
 ```
+
+缺点
+
+包含引用类型的属性值始终都会共享相应的值，这点跟原型链继承一样。
 
 注意：修改person1.name的值，person2.name的值并未发生改变，并不是因为person1和person2有独立的 name 值，而是因为person1.name = 'person1'，给person1添加了 name 值，并非修改了原型上的 name 值。
 
