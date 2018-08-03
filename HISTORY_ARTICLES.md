@@ -2,7 +2,8 @@
     (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
 
 - 2018.08.03
-    - ⭐ [为什么表达式语句不能以大括号或 function 开头({}.toString() 报错原因)](./mypost/2018/08/03/about-expression.md)
+    - 👍 [继承的多种方式及优缺点](https://github.com/mqyqingfeng/Blog/issues/16)
+    - ⭐ [为什么表达式语句不能以大括号或 function 开头({}.toString() 报错原因)](./mypost/2018/08/03/why-expression-cannot-start-with-function-or-curly-braces.md)
 
 
 - 2018.08.02
