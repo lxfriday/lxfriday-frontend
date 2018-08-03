@@ -3,7 +3,7 @@
  */
 
 var data = [];
-for (let i = 0; i < 3; i++) {
+for (var i = 0; i < 3; i++) {
   (data[i] = function () {
     console.log(arguments.callee);
     console.log(arguments.callee.i);
@@ -18,6 +18,13 @@ for (let i = 0; i < 3; i++) {
   // }
 }
 
+// 使用 let 声明的变量在块级作用域内能强制执行更新变量
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/block
+for (let i = 0; i < 3; i++) {
+    data[i] = function() {
+      console.log(i);
+    }
+}
 data[0]();
 data[1]();
 data[2]();
