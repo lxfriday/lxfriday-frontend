@@ -72,7 +72,7 @@ var person1 = new Person();
 
 优点：方法不会重新被创建
 
-缺点：1、所有的属性和发放都会被共享；2、不能在构造函数里面初始化参数
+缺点：1、所有的属性和方法都会被共享；2、不能在构造函数里面初始化参数
 
 ## 3.1、原型模式优化
 
@@ -119,7 +119,7 @@ function Person(name) {
   return o;
 }
 
-var person1 = Person('kevin');
+var person1 = new Person('kevin');
 console.log(person1 instanceof Person); // false
 console.log(person1 instanceof Object); // true
 ```
