@@ -1,4 +1,4 @@
-# ES5中 Object.Create 的实现
+# ES5中 Object.Create 的模拟实现
 
 `ES5 sham` 中 `Object.create` 模拟实现
 
