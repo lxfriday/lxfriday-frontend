@@ -1,6 +1,7 @@
 # 我的博客文章
 
 ## 2018.08.04
+- [Class 相关](./2018/08/04/about-class.md)
 - [instance 判断的依据](./2018/08/04/how-to-judge-the-result-of-instance.md)
 - [ES5中 Object.Create 的模拟实现](./2018/08/04/implemention-of-objectcreate-and-problems.md)
 
