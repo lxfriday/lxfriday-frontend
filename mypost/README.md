@@ -1,5 +1,9 @@
 # 我的博客文章
 
+## 2018.08.07
+- [类的继承](./2018/08/07/class-extends.md)
+
+
 ## 2018.08.04
 - [Class 相关](./2018/08/04/about-class.md)
 - [instance 判断的依据](./2018/08/04/how-to-judge-the-result-of-instance.md)
