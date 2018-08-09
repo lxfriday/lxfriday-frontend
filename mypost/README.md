@@ -1,8 +1,8 @@
 # 我的博客文章
 
 ## 2018.08.07
+- [Promise 相关](./2018/08/07/about-promise.md)
 - [类的继承](./2018/08/07/class-extends.md)
-
 
 ## 2018.08.04
 - [Class 相关](./2018/08/04/about-class.md)
