@@ -1,5 +1,8 @@
 # 我的博客文章
 
+## 2018.08.09
+- [Promise/A+ 规范文档中文翻译](./2018/08/09/promise-a-plus-specification.md)
+
 ## 2018.08.07
 - [Promise 相关](./2018/08/07/about-promise.md)
 - [类的继承](./2018/08/07/class-extends.md)
