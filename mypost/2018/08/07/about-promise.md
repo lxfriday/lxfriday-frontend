@@ -301,6 +301,10 @@ setTimeout(() => console.log('three'), 0);
 Promise.resolve().then(() => console.log('two'));
 // console.log 是立即执行
 console.log('one');
+
+// one
+// two
+// three
 ```
 
 ### Promise.reject()
