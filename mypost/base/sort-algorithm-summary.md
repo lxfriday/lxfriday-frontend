@@ -17,16 +17,16 @@
 
 ---
 
-1. [快速排序](#quick-sort) O(N*logN)
-1. [堆排序](#heap-sort)   O(N*logN)
-1. [归并排序](#merge-sort) O(N*logN)
-1. [希尔排序](#shell-sort) O(n1.5)
-1. [插入排序](#insertion-sort) O(n2)
-1. [选择排序](#selection-sort) O(n2)
-1. [冒泡排序](#bubble-sort) O(n2)
+1. [快速排序](#快速排序-quick-sort) O(N*logN)
+1. [堆排序](#堆排序-heap-sort)   O(N*logN)
+1. [归并排序](#归并排序-merge-sort) O(N*logN)
+1. [希尔排序](#希尔排序-shell-sort) O(n1.5)
+1. [插入排序](#插入排序-insertion-sort) O(n2)
+1. [选择排序](#选择排序-selection-sort) O(n2)
+1. [冒泡排序](#冒泡排序-bubble-sort) O(n2)
 1. [基数排序](#8) O(d(n+r))
 
-## [快速排序 (Quick Sort)](#quick-sort)
+## [快速排序 (Quick Sort)](#快速排序-quick-sort)
 
 |图1|图2|
 |:-:|:-:|
@@ -92,11 +92,11 @@ function swap(arr, i, j) {
 
 ```
 
-## [堆排序 (Heap Sort)](#heap-sort)
+## [堆排序 (Heap Sort)](#堆排序-heap-sort)
 
 **堆排序是指利用这种数据结构所设计的一种排序算法。堆积是一种近似完全二叉树的结构，并同时满足堆积的性质：子节点的键值或索引总是小于（或者大于）它的父节点。**
 
-## [归并排序 (Merge Sort)](#merge-sort)
+## [归并排序 (Merge Sort)](#归并排序-merge-sort)
 
 **归并排序是建立在归并操作上的一种有效的排序算法。该算法采用分治法（Divide and Conquer）。将已有序的的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，则成为2-路归并**
 
@@ -145,7 +145,7 @@ function merge(left, right) {
 
 ```
 
-## [希尔排序 (Shell Sort)](#shell-sort)
+## [希尔排序 (Shell Sort)](#希尔排序-shell-sort)
 
 **第一个突破O(n2)的排序算法，是简单插入排序的改进版。它与插入排序不同之处在于，它会优先比较距离较远的元素。希尔排序又叫做缩小增量排序**
 
@@ -160,7 +160,7 @@ function merge(left, right) {
 - 按增量序列个数k，对序列进行k趟排序
 - 每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m的子序列，分别对各子表进行直接插排。仅当增量因子为1时，整个序列作为一个表来处理，表长度即为整个序列的长度
 
-## [插入排序 (Insertion Sort)](#insertion-sort)
+## [插入排序 (Insertion Sort)](#插入排序-insertion-sort)
 
 **它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入**
 
@@ -199,7 +199,7 @@ function insertionSort(arr) {
 }
 ```
 
-## [选择排序 (Selection Sort)](#selection-sort)
+## [选择排序 (Selection Sort)](#选择排序-selection-sort)
 
 **首先在未排序序列中找到最小（最大）元素，存放到排序序列的起始位置，然后再从剩余元素中寻找最小（最大）元素，然后放到第二，依此类推，直到所有元素排序完毕**
 
@@ -232,7 +232,7 @@ function swap(arr, i, j) {
 }
 ```
 
-## [冒泡排序 （Bubble Sort）](#bubble-sort)
+## [冒泡排序 （Bubble Sort）](#冒泡排序-bubble-sort)
 
 **它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该序列已经排序完成。该算法中较小的元素会经由交换慢慢浮到数列顶端**
 
