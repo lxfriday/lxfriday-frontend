@@ -17,6 +17,11 @@
 
 ---
 
+|分类树状图|效果对比|
+|:-:|:-:|
+|![分类树状图](http://qiniu1.lxfriday.xyz/image/849589-20180402132530342-980121409.png)|![参考](http://qiniu1.lxfriday.xyz/image/849589-20180402133438219-1946132192.png)|
+
+
 1. [快速排序](#快速排序-quick-sort) O(N*logN)
 1. [堆排序](#堆排序-heap-sort)   O(N*logN)
 1. [归并排序](#归并排序-merge-sort) O(N*logN)
@@ -283,7 +288,6 @@ console.log(quickSort(arr));
 ```
 
 
-![参考](http://qiniu1.lxfriday.xyz/image/849589-20180402133438219-1946132192.png)
 
 
 ## 参考文章
