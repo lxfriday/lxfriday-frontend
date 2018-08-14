@@ -1,6 +1,11 @@
 # 好文共欣赏
     (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
 
+- 2018.08.13
+    - ⚡ [setTimeout、setImmediate、process.nextTik 的区别](https://www.cnblogs.com/onepixel/articles/7605465.html)
+        - idle观察者(process.nextTik) >> io观察者(setTimeout) > check观察者(setImmediate)
+    - ⚡ [排序算法详解](https://www.cnblogs.com/onepixel/articles/7674659.html)
+
 - 2018.08.10
     - ⚡ [Promises/A+ 规范](https://promisesaplus.com)
 
