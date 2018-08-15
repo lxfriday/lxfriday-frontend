@@ -4,6 +4,8 @@
 
 [HISTORY_ARTICLES](./HISTORY_ARTICLES.md)
 
+[SOURCE_ANALYSE](./SOURCE_ANALYSE.md)
+
 **最好的学习方式是自己去模拟实现，自己把不懂的敲一遍!**
 
 1. [模拟实现](https://github.com/lxfriday/lxfriday-frontend/tree/master/implementation)
