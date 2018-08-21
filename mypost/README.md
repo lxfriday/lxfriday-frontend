@@ -1,6 +1,12 @@
 # 我的博客文章
 
+## 2018.08.21
+- [跨域解决方案](./2018/08/21/cross-origin.md)
+
 ## 2018.08.13
+- [二叉树](./base/binary-tree.md)
+- [线性表](./base/linear-list.md)
+- [栈](./base/stack.md)
 - [排序算法总结](./base/sort-algorithm-summary.md)
 
 ## 2018.08.09

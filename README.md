@@ -1,10 +1,10 @@
 # 岁月如歌，心若止水
 
 [LXFRIDAY GITHUB BLOG](./mypost)
-
+[程序设计基础](./mypost/base)
 [HISTORY_ARTICLES](./HISTORY_ARTICLES.md)
-
 [SOURCE_ANALYSE](./SOURCE_ANALYSE.md)
+
 
 **最好的学习方式是自己去模拟实现，自己把不懂的敲一遍!**
 
