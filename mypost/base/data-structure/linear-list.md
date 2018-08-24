@@ -84,6 +84,125 @@
 1. 链表第一位置节点上的操作和其他位置上的操作一致
 1. 无论链表是否为空，头指针都指向头结点（非空），空表和非空表处理一样
 
+JS实现单链表
+
+```js
+
+// 链表的结点
+class Node {
+  constructor(el) {
+    this.element = el;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.length = 0;
+  }
+
+  // 向链表尾部添加一个元素
+  append(el) {
+    const node = new Node(el);
+    let current = this.head;
+    // 长度为0，则赋予为头结点
+    if (current === null) {
+      this.head = node;
+    } else {
+      // 长度不为0，则接到尾结点的next属性上
+      while(current.next) {
+        current = current.next;
+      }
+      current.next = node;
+    }
+    this.length++;
+  }
+
+  // 向链表中插入一个元素
+  insert(pos, el) {
+    if (pos >= 0 && pos <= this.length) {
+      const node = new Node(el);
+      let current = this.head;
+      let prev = null;
+      let index = 0;
+      if (pos === 0) {
+        // 插到头结点上
+        this.head = node;
+        node.next = current;
+      } else {
+        // 插到中间的某个结点上
+        while(index++ < pos) {
+          prev = current;
+          current = current.next;
+        }
+        prev.next = node;
+        node.next = current;
+      }
+      this.length++;
+      return true;
+    }
+    return false;
+  }
+
+  // 依据下标删除
+  removeAt(pos) {
+    if (pos > -1 && pos < this.length) {
+      let current = this.head;
+      let prev = null;
+      let index = 0;
+      if (pos === 0) {
+        this.head = current.next;
+      } else {
+        while(index++ < pos) {
+          prev = current;
+          current = current.next;
+        }
+        prev.next = current.next;
+      }
+      this.length--;
+      return current.element;
+    }
+    return null;
+  }
+
+  // 查找某个元素所在的index
+  indexOf(el) {
+    let index = -1;
+    let current = this.head;
+    while(current) {
+      if (current.element === el) {
+        return index + 1;
+      }
+      current = current.next;
+      index++;
+    }
+    return -1;
+  }
+
+  // 依据元素删除
+  removeByValue(el) {
+    const index = this.indexOf(el);
+    if (index !== -1) {
+      return this.removeAt(index)
+    }
+    return false;
+  }
+
+  // 获取每个结点上的值，推入数组中
+  nodeElementArray() {
+    const result = [];
+    let current = this.head;
+    while(current) {
+      result.push(current.element);
+      current = current.next;
+    }
+    return result;
+  }
+}
+
+```
+
 #### 双链表
 
 相比于单链表，每个结点添加了一个指向前驱的结点。 [prior|data|next]

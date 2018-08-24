@@ -29,6 +29,7 @@
 1. [插入排序](#插入排序-insertion-sort) O(n2)
 1. [选择排序](#选择排序-selection-sort) O(n2)
 1. [冒泡排序](#冒泡排序-bubble-sort) O(n2)
+1. [鸡尾酒排序](#鸡尾酒排序-cocktail-sort)
 1. [基数排序](#8) O(d(n+r))
 
 ## [快速排序 (Quick Sort)](#快速排序-quick-sort)
@@ -251,6 +252,8 @@ function swap(arr, i, j) {
 - 重复步骤1~3，直到排序完成
 
 ```js
+// 基础版本
+
 function bubbleSort(arr) {
   var len = arr.length;
   // 已经排好序的个数
@@ -270,7 +273,105 @@ function swap(arr, i, j) {
   arr[i] = arr[j];
   arr[j] = temp;
 }
+
+
+// 优化版本1：优化在排序i（i < n）轮之后，数列已经有序的情况
+// isSorted 表示是否处于全局有序了
+
+function bubbleSort2(arr) {
+  var len = arr.length;
+  // 已经排好序的个数
+  for (var i = 0; i < len - 1; i++) {
+    // 本轮需要比较的次数
+    let isSorted = true; // 是否是规则的
+    for (var j = 0; j < len - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+        // 有交换则是无序的
+        isSorted = false;
+      }
+    }
+    if (isSorted) break;
+  }
+  return arr;
+}
+
+// 优化版本2：对数列有序区的界定
+// 在每一轮排序的之后，记录下最后一次元素交换的位置，那个位置也就是无序数列的边界，再往后就是有序区了
+// lastExchangeIndex 表示上次排序走到的最后的下标
+function bubbleSort3(arr) {
+  var len = arr.length;
+  // 已经排好序的个数
+  var lastExchangeIndex = 0;
+  var sortBorder = len - 1;
+  for (var i = 0; i < len - 1; i++) {
+    // 本轮需要比较的次数
+    let isSorted = true; // 是否是规则的
+    // 找到上界，并用上界约束接下来的循环
+    for (var j = 0; j < sortBorder; j++) {
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+        // 有交换则是无序的
+        isSorted = false;
+        lastExchangeIndex = j;
+      }
+    }
+    sortBorder = lastExchangeIndex;
+    if (isSorted) break;
+  }
+  return arr;
+}
 ```
+
+## [鸡尾酒排序 （Cocktail Sort）](#鸡尾酒排序-cocktail-sort)
+
+鸡尾酒排序是冒泡排序的优化版，从在一轮排序中分别找到最小值和最大值
+
+![鸡尾酒排序图](http://qiniu1.lxfriday.xyz/image/739525-20160328160227004-680964122.gif)
+
+```js
+function swap(arr, i, j) {
+  var temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+
+// 鸡尾酒排序
+function cockTailSort(arr) {
+  let len = arr.length;
+  let leftExchangeIndex = 0; // 交换下界
+  let leftSortBorder = leftExchangeIndex; // 交换下界
+  let rightExchangeIndex = len - 1; // 交换上界
+  let rightSortBorder = rightExchangeIndex; // 交换上界
+  // 需要经历的大循环次数： len / 2 次（向下取整）
+  for(let i = 0; i < len / 2 - 1; i++) {
+    let isSorted = true;
+    for(let j = leftSortBorder; j < rightSortBorder; j++) {
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j , j + 1);
+        isSorted = false;
+        rightExchangeIndex = j;
+      }
+    }
+    rightSortBorder = rightExchangeIndex;
+    if (isSorted) break;
+    for(let j = rightSortBorder; j > leftSortBorder; j--) {
+      if (arr[j] < arr[j - 1]) {
+        swap(arr, j, j - 1);
+        isSorted = false;
+        leftExchangeIndex = j;
+      }
+    }
+    leftSortBorder = leftExchangeIndex;
+    if (isSorted) break;
+  }
+  return arr;
+}
+```
+
+`isSorted` 扫描在这轮排序走完之后是否已经是完全有序，是则退出排序否则继续进行下一轮排序
+
+`leftSortBorder`、`rightSortBorder` 分别为每轮排序过后的无序边界
 
 
 
@@ -294,3 +395,4 @@ console.log(quickSort(arr));
 1. [https://www.cnblogs.com/onepixel/articles/7674659.html](https://www.cnblogs.com/onepixel/articles/7674659.html)
 1. [runoob 排序算法总结](http://www.runoob.com/w3cnote/sort-algorithm-summary.html)
 1. [http://www.cnblogs.com/eniac12/p/5329396.html](http://www.cnblogs.com/eniac12/p/5329396.html)
+1. [冒泡排序及其优化](https://mp.weixin.qq.com/s?__biz=MjM5NzM0MjcyMQ==&mid=2650083226&idx=3&sn=02891439dde3f852d5823ced19f2b0ab&chksm=bedad4f489ad5de205e9d061e0a0d6dc368c7154ee68275f69365b7b2d007e10bc993a6f8d5f&mpshare=1&scene=23&srcid=0823FDF5o2cDODOj6UKSbWfm#rd)
