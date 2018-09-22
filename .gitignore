@@ -3,3 +3,4 @@ package.json
 package-lock.json
 App.js
 test.*
+.idea
