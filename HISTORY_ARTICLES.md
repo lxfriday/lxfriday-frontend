@@ -1,6 +1,10 @@
 # 好文共欣赏
     (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
 
+- 2018.09.22
+    - ⚡ [深入剖析 JavaScript 的深复制](http://jerryzou.com/posts/dive-into-deep-clone-in-javascript/)
+    - ⚡ [JavaScript中的缓冲数组和强类型数组 ArrayBuffer、TypedArray](https://zhuanlan.zhihu.com/p/30938992)
+
 - 2018.08.13
     - ⚡ [setTimeout、setImmediate、process.nextTik 的区别](https://www.cnblogs.com/onepixel/articles/7605465.html)
         - idle观察者(process.nextTik) >> io观察者(setTimeout) > check观察者(setImmediate)
