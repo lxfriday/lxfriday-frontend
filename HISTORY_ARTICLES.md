@@ -1,6 +1,19 @@
 # 好文共欣赏
     (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
 
+- 2018.09.23
+    - [理解事件循环二(macrotask和microtask)](https://github.com/ccforward/cc/issues/48)
+        - Microtasks: process.nextTick, promise
+        - Macrotasks: setTimeout, setInterval, setImmediate, I/O
+    - [理解 JavaScript 中的 macrotask 和 microtask](https://juejin.im/entry/58d4df3b5c497d0057eb99ff)
+        - 如果我的某个 microtask 任务又推入了一个任务进入 microtasks 队列，那么在主线程完成该任务之后，仍然会继续运行 microtasks 任务直到任务队列耗尽。
+        - 而事件循环每次只会入栈一个 macrotask ，主线程执行完该任务后又会先检查 microtasks 队列并完成里面的所有任务后再执行 macrotask
+    - [Stack的三种含义 -- 阮一峰](http://www.ruanyifeng.com/blog/2013/11/stack.html)
+        - 栈中的数据占用空间大小是确定的，堆中数据占用的大小是不确定的，堆需要GC进行空间回收，栈在当前执行上下文结束之后进行回收
+    - ⚡ [JavaScript 运行机制详解：再谈Event Loop -- 阮一峰](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+    - [从setTimeout-setInterval看JS线程](https://segmentfault.com/a/1190000013702430)
+    - 👍 [你不曾察觉的隐患：危险的 target="_blank" 与 “opener”](https://segmentfault.com/a/1190000016421263)
+
 - 2018.09.22
     - ⚡ [深入剖析 JavaScript 的深复制](http://jerryzou.com/posts/dive-into-deep-clone-in-javascript/)
     - ⚡ [JavaScript中的缓冲数组和强类型数组 ArrayBuffer、TypedArray](https://zhuanlan.zhihu.com/p/30938992)
