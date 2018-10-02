@@ -1,6 +1,23 @@
 # 好文共欣赏
     (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
 
+- 2018.10.01
+    - [图 JS实现](mypost/base/democode/Graph.js)
+        - 图的实现：邻接矩阵、邻接表、关联矩阵
+    - [集合（百度百科）](https://baike.baidu.com/item/%E9%9B%86%E5%90%88/2908117?fr=aladdin)
+        - [JS 实现](mypost/base/democode/Set.js)
+        - 集合的表示方法有：列举、描述、图像、符号法
+        - 列举法：N = {1,2,3,4,5} （这也是计算机中常用的表示法）
+     - [二叉搜索树的 JS 实现](mypost/base/democode/BinarySearchTree.js)
+    - [红黑树](https://baike.baidu.com/item/%E7%BA%A2%E9%BB%91%E6%A0%91/2413209?fr=aladdin#reference-[1]-133754-wrap)
+        - 红黑树的节点是红色或黑色的
+        - 根节点是黑色的
+        - 每个叶节点（NIL、空节点）是黑色的
+        - 每个红色节点的两个子节点都是黑色的（从每个叶子节点到根的所有路径上不能有两个连续的红色节点）
+        - 从任一节点到其每个叶子节点的所有路径都包含相同数目的黑色节点
+    - [理解红黑树左旋和右旋](http://www.cnblogs.com/skywang12345/p/3245399.html)
+        - 左旋意味着将节点变成其右子节点的左子节点，然后其原有右子节点的左子节点变成节点的右节点（右旋类推）
+
 - 2018.09.23
     - [理解事件循环二(macrotask和microtask)](https://github.com/ccforward/cc/issues/48)
         - Microtasks: process.nextTick, promise
