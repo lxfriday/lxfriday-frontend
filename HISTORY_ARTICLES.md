@@ -1,12 +1,21 @@
 # 好文共欣赏
     (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
-    
+
+- 2018.10.04
+    - 事件冒泡、事件捕捉、事件委托（事件代理）
+        - **事件捕捉**是指从 document 一直到触发事件的那个节点，事件冒泡则相反，指的是触发事件的节点到 document
+        - [js中的事件委托或是事件代理详解](https://www.cnblogs.com/liugang-vip/p/5616484.html)
+        - `e.stopPropagation` 可以阻止事件冒泡或者事件捕捉
+        - 事件委托能减少由于大量绑定事件带来的性能损耗，同时对新加入的结点不需要额外绑定事件
+        - 事件委托基于事件冒泡，所以不支持冒泡的事件无法进行委托
+        - `addEventListener('click', func, bool)` `addEventListener` 的第三个参数，默认为false，表示使用冒泡，true表示事件捕捉
+        
 - 2018.10.03
     - [页面重排与重绘（Reflow & Repaint)](https://zhuanlan.zhihu.com/p/35184404)
         ![intro](http://qiniu1.lxfriday.xyz/common/v2-b03158856ef36b4668d101e13ea949ed_hd.jpg)
         - reflow（重排）：当涉及到 DOM 节点的布局属性发生变化时，就会重新计算该属性，浏览器会重新描绘相应的元素
         - repaint（重绘）：当影响 DOM 元素可见性的属性发生变化（color、visibility等），浏览器会重新描绘相应的元素。重排必然会引起重绘
-        - 浏览器渲染的大致流程：
+                             - 浏览器渲染的大致流程：
             1. 渲染 HTML 文档，构建 DOM 树
             1. 解析 CSS 属性，构建 CSSOM 树
             1. 结合 DOM 树和 CSSOM 树，构建 render 树
