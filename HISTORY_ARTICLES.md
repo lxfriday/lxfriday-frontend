@@ -1,5 +1,48 @@
 # 好文共欣赏
     (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
+    
+- 2018.10.03
+    - [页面重排与重绘（Reflow & Repaint)](https://zhuanlan.zhihu.com/p/35184404)
+        ![intro](http://qiniu1.lxfriday.xyz/common/v2-b03158856ef36b4668d101e13ea949ed_hd.jpg)
+        - reflow（重排）：当涉及到 DOM 节点的布局属性发生变化时，就会重新计算该属性，浏览器会重新描绘相应的元素
+        - repaint（重绘）：当影响 DOM 元素可见性的属性发生变化（color、visibility等），浏览器会重新描绘相应的元素。重排必然会引起重绘
+        - 浏览器渲染的大致流程：
+            1. 渲染 HTML 文档，构建 DOM 树
+            1. 解析 CSS 属性，构建 CSSOM 树
+            1. 结合 DOM 树和 CSSOM 树，构建 render 树
+            1. 在 render 树的基础上布局，计算每个节点的几何结构
+            1. 把每个节点绘制在屏幕上
+        - 一个页面可以简单的看成由两部分构成
+            - DOM 节点，描述页面的结构
+            - DOM 节点的属性，描述 DOM 节点如何呈现
+        - reflow 发生在第4步， repaint 发生在第5步
+        - **如何减少reflow、repaint**
+            - 避免 js 逐条更改样式，使用 className
+            - 避免频繁操作 dom ，创建 documentFragment 或 div，在它上面应用 DOM 操作之后，添加到文档中
+            - 在设置为 `display: none` 的元素上操作，最后显示出来
+            - 避免频繁读取元素集合属性（scrollTop等）
+            - 绝对定位具有复杂动画的元素。使其脱离文档流，避免引起父元素及其后续元素大量重排
+    - [对 DOM 树进行深度优先和广度优先遍历](./mypost/2018/10/03/bfs-dfs-on-dom.md)
+    - [querySelectorAll 方法相比 getElementsBy 系列方法有什么区别？](https://www.zhihu.com/question/24702250)
+        - w3c 标准：`querySelectorAll` 属于 W3C 中的 Selectors API 规范，而 `getElementsBy*` 系列则是属于 W3C DOM 规范
+        - 接收参数： `querySelectorAll` 接收的参数是一个 CSS 选择符（必须严格符合 CSS 选择器命名规范，否则会抛出异常 DOMException），`getElementsBy*` 的参数只能是单一的 className、tagName、name、id
+        - 返回值：`querySelectorAll` 返回的是一个 Static Node List（页面 DOM 变动不会影响之前已经获取到的返回值），`getElementsBy*` 返回的是 Live Node List（之前的返回值会受到页面的 DOM 变动影响）
+        - chrome 中的效果
+            - `document.querySelectorAll('a').toString();    // return "[object NodeList]"`
+            - `document.getElementsByTagName('a').toString();    // return "[object HTMLCollection]"`
+            - `Note: Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.`
+        - HTMLCollection 是属于 **Document Object Model HTML** 规范，而 NodeList 属于 **Document Object Model Core** 规范。
+            ```js
+                var ul = document.getElementsByTagName('ul')[0],
+                    lis1 = ul.childNodes,
+                    lis2 = ul.children;
+                console.log(lis1.toString(), lis1.length);    // "[object NodeList]" 11
+                console.log(lis2.toString(), lis2.length);    // "[object HTMLCollection]" 4
+
+            ```
+        - NodeList 对象会包含文档中的所有节点，如 Element、Text 和 Comment 等。
+        - HTMLCollection 对象只会包含文档中的 Element 节点。
+
 
 - 2018.10.01
     - [图 JS实现](mypost/base/democode/Graph.js)
