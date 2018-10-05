@@ -1,5 +1,8 @@
 # 好文共欣赏
     (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
+- 2018.10.05
+    - [迷宫问题 广度优先寻找最短路径](./mypost/base/algorithm/迷宫问题/maze-problem-bfs-minimum-length.js)
+    - [迷宫问题 normal 版本](./mypost/base/algorithm/迷宫问题/maze-problem.js)
 
 - 2018.10.04
     - [尾调用及其优化](http://es6.ruanyifeng.com/#docs/function#%E5%B0%BE%E8%B0%83%E7%94%A8%E4%BC%98%E5%8C%96)
@@ -128,7 +131,7 @@
     - [图 JS实现](mypost/base/democode/Graph.js)
         - 图的实现：邻接矩阵、邻接表、关联矩阵
     - [集合（百度百科）](https://baike.baidu.com/item/%E9%9B%86%E5%90%88/2908117?fr=aladdin)
-        - [JS 实现](mypost/base/democode/Set.js)
+        - [JS 实现](mypost/base/democode/set的模拟实现/Set.js)
         - 集合的表示方法有：列举、描述、图像、符号法
         - 列举法：N = {1,2,3,4,5} （这也是计算机中常用的表示法）
      - [二叉搜索树的 JS 实现](mypost/base/democode/BinarySearchTree.js)
