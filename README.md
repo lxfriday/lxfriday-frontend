@@ -1,9 +1,9 @@
 # 岁月如歌，心若止水
 
 1. [我的GITHUB BLOG](./mypost)
-1. [程序设计基础](./mypost/base)
 1. [HISTORY_ARTICLES](./HISTORY_ARTICLES.md)
 1. [QA_ALGORITHM](./QA_ALGORITHM.md)
+1. [DEMO_CODE](./democode)
 1. [SOURCE_ANALYSE](./SOURCE_ANALYSE.md)
 
 **最好的学习方式是自己去模拟实现，自己把不懂的敲一遍!**

@@ -1,8 +1,36 @@
 # 好文共欣赏
-    (👍 赞) (⚡ 重要)(⭐ 我的博客文章)
+    （👍 赞） （⚡ 重要）（⭐ 我的博客文章）（💎 待深入）
+- 💎
+    - 事件循环
+        - [Node.js Event Loop 的理解 Timers，process.nextTick()](https://cnodejs.org/topic/57d68794cb6f605d360105bf)
+        - [Node.js 事件循环机制](https://www.cnblogs.com/onepixel/p/7143769.html)
+        - [Node.js的event loop及timer/setImmediate/nextTick](https://github.com/creeperyang/blog/issues/26)
+        - [node中的Event模块(上）](https://zhuanlan.zhihu.com/p/31043667?utm_source=qq&utm_medium=social&utm_oi=709122276448047104)
+- 2018.10.06
+    - [js模块化编程之彻底弄懂CommonJS和AMD/CMD！](https://www.cnblogs.com/chenguangliang/p/5856701.html)
+        - CommonJS：浏览器不兼容 CommonJS 的根本原因，在于缺少四个 Node.js 环境的变量，`module`、`exports`、`require`、`global`，只要提供这四个变量，浏览器就能加载 CommonJS 模块。
+            - Browserify 是目前最常用的 CommonJS 转换工具， 其编译之后，将所有模块放入一个数组，id 是模块的编号，source 是模块的源码，deps 是模块的依赖
+        - AMD：采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行
+            - `require([module], fn)` 
+            - 模块的定义
+                ```js
+                define(function() {
+                  var add = function () {};
+                  return {
+                    add,
+                  };
+                });
+                ```
+            - 正常script标签加载的时候，浏览器会停止网页渲染
+            - RequireJS 实现 js 文件的异步加载，避免网页失去响应，管理模块之间的依赖性，便于代码的编写和维护
+        - [demo code](./democode/requirejs-demo)
+    - [什么是事件循环](https://github.com/creeperyang/blog/issues/26)
+        - 所有任务都在主线程上执行，形成一个执行栈（ecs）
+        - 主线程之外还存在一个任务队列（task queue），系统把异步任务放到任务队列中，然后主线程继续执行后续的任务
+        - 当 ECS 中的所有任务执行完毕，系统就会读取任务队列，如果这个时候，异步任务已经结束了等待状态，将回调函数推入任务队列，就会从任务队列进入执行栈，恢复执行
 - 2018.10.05
-    - [迷宫问题 广度优先寻找最短路径](./mypost/base/algorithm/迷宫问题/maze-problem-bfs-minimum-length.js)
-    - [迷宫问题 normal 版本](./mypost/base/algorithm/迷宫问题/maze-problem.js)
+    - [迷宫问题 广度优先寻找最短路径](mypost/base/democode/迷宫问题/maze-problem-bfs-minimum-length.js)
+    - [迷宫问题 normal 版本](mypost/base/democode/迷宫问题/maze-problem.js)
 
 - 2018.10.04
     - [尾调用及其优化](http://es6.ruanyifeng.com/#docs/function#%E5%B0%BE%E8%B0%83%E7%94%A8%E4%BC%98%E5%8C%96)

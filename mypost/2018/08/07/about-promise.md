@@ -1,6 +1,6 @@
 # Promise 相关
 
-## [Promise 的模拟实现](../../../code/2018/08/09/implementation-of-promise.js)
+## [Promise 的模拟实现](../../../../implementation/implementation-of-promise.js)
 
 ## 使用 Promise 实现 Ajax 操作
 
