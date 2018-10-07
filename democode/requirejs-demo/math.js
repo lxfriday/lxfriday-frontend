@@ -3,6 +3,8 @@ define(function() {
   var add = function () {
     console.log('add');
   };
+  
+  console.log('load math.js');
 
   return {
     add,
