@@ -1,5 +1,6 @@
-# 牛人博客
+# 常去博客
 
+1. [mqyqingfeng/Blog](https://github.com/mqyqingfeng/Blog)
 1. [阮一峰](http://ruanyifeng.com/)
 1. [廖雪峰](https://www.liaoxuefeng.com/)
 1. [汤姆大叔](http://www.cnblogs.com/TomXu/)
