@@ -6,6 +6,14 @@
         - [Node.js 事件循环机制](https://www.cnblogs.com/onepixel/p/7143769.html)
         - [Node.js的event loop及timer/setImmediate/nextTick](https://github.com/creeperyang/blog/issues/26)
         - [node中的Event模块(上）](https://zhuanlan.zhihu.com/p/31043667?utm_source=qq&utm_medium=social&utm_oi=709122276448047104)
+- 2018.10.09
+    - [获取元素CSS值之getComputedStyle方法熟悉 张鑫旭](https://www.zhangxinxu.com/wordpress/2012/05/getcomputedstyle-js-getpropertyvalue-currentstyle/)
+      - `currentStyle` 是 IE 浏览器自娱自乐的一个属性，其与 `element.style` 可以说是近亲，至少在使用形式上类似，`element.currentStyle`，差别在于 `element.currentStyle` 返回的是元素当前应用的**最终CSS属性值**（包括外链CSS文件，页面中嵌入的<style>属性等）。因此，从作用上将，`getComputedStyle` 方法与 `currentStyle` 属性走的很近，形式上则 `style` 与 `currentStyle` 走的近。不过，`currentStyle` 属性貌似不支持伪类样式获取，这是与 `getComputedStyle` 方法的差异，也是jQuery css()方法无法体现的一点
+      - [论style、getComputedStyle、currentStyle之间的区别和联系](https://blog.csdn.net/RENYZHI/article/details/78501500)
+      - `css.style` 只能获取内联样式
+      - `currentStyle` IE 专属
+      - `window.getComputedStyle(el[, prseudoEl])`是一个可以获取当前元素所有最终使用的CSS属性值。返回的是一个CSS样式声明对象([object CSSStyleDeclaration])，只读
+
 - 2018.10.07
     - babel
       - babel 编译时只转换语法，几乎可以编译所有新的 JavaScript 语法，但并不会转化BOM里面不兼容的API
