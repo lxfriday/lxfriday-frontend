@@ -6,6 +6,65 @@
         - [Node.js 事件循环机制](https://www.cnblogs.com/onepixel/p/7143769.html)
         - [Node.js的event loop及timer/setImmediate/nextTick](https://github.com/creeperyang/blog/issues/26)
         - [node中的Event模块(上）](https://zhuanlan.zhihu.com/p/31043667?utm_source=qq&utm_medium=social&utm_oi=709122276448047104)
+- 2018.10.07
+    - babel
+      - babel 编译时只转换语法，几乎可以编译所有新的 JavaScript 语法，但并不会转化BOM里面不兼容的API
+      - babel-plugin-transform-runtime 对浏览器的一些新的 api 进行转换（Map、Set、Promise），其依赖于 babel-runtime
+        - babel-runtime 与 babel-plugin-transform-runtime 的区别是：plugin 会由工具自动添加，主要的功能是为api提供沙箱的垫片方案，不会污染全局的api，因此适合用在第三方的开发产品中
+      - babel-polyfill 通过改写全局prototype的方式实现，比较适合单独运行的项目
+      - babel-preset-env 对语法进行转换
+      - [对 babel-transform-runtime，babel-polyfill 的一些理解](https://www.jianshu.com/p/7bc7b0fadfc2)
+    - webpack
+        - `entry` 入口文件，使用对象表示会比较清晰
+            ```js
+            entry: {
+              sha： './src/sha.js',
+            }
+            ```
+        - `output` 打包生成的文件，对应 `entry`
+            ```js
+            output: {
+                // name 对应 sha
+              filename: '[name]/min.[hash:5].js',
+            }
+            ``` 
+        - `loader`
+            ```js
+              module: {
+                rule: [
+                  {
+                    test: /\.css$/,
+                    use: 'css-loader',
+                  },
+                ],
+              }
+            ```
+        - `plugin`
+          - CommonsChunkPlugin 将不同 chunk 中相同的 chunk
+          - UglifyJsPlugin 混淆、压缩、生成 source-map
+          - ExtractTextWebpackPlugin 将 CSS 提取成单独的文件
+          - HtmlWebpackPlugin 生成 html 页面
+          - HotModuleReplacementPlugin 模块热更新插件
+          ```js
+            // const webpack = require('webpack'); 
+            plugins: [
+              new webpack.optimize.UglifyJsPlugin(),
+            ],
+          ```
+        - bundle、chunk、module
+            - bundle 是由 webpack 打包出来的文件，chunk 是指 webpack 在进行模块依赖分析的时候，代码分割出来的代码块，module 是开发中的单个模块
+        - Loader、Plugin
+            - Loader 是用来告诉 webpack 如何处理某一类型的文件，并且引入到打包出的文件中
+            - Plugin 是用来**自定义 webpack 打包过程的方式**，一个插件是一个含有 apply 方法的对象，通过这个方法可以参与到整个 webpack 打包的流程（生命周期）
+        - Tree-shaking
+            - Tree-shaking 是指在打包的时候去除文件中引入的但是没有使用到的死代码。wepback 中使用 UglifyJsPlugin 来实现 Tree-shaking JS。CSS 使用 Purify-CSS 实现。
+        - 资源
+            - [Webpack4之SplitChunksPlugin规则](https://blog.csdn.net/Napoleonxxx/article/details/81975186)
+    - [webpack 与 gulp 的区别](https://www.cnblogs.com/lovesong/p/6413546.html)
+        - gulp 强调的是前端开发的工作流程，让 gulp 执行这些 task ，从而构建项目的整个前端开发流程
+        - webpack 是一个前端模块化方案，更侧重模块打包，可以递归地打包项目中的所有模块，最终生成几个打包后的文件。它和其他工具最大的不同在于它支持 code-splitting、模块化（AMD、ESM、CommonJS）、全局分析
+        - 总结：gulp 严格上讲，模块化不是它强调的东西，它旨在规范前端开发流程。webpack 更是明显强调模块化开发，而那些文件压缩合并、预处理等功能，不过是他附带的功能
+   
 - 2018.10.06
     - [js模块化编程之彻底弄懂CommonJS和AMD/CMD！](https://www.cnblogs.com/chenguangliang/p/5856701.html)
         - CommonJS：浏览器不兼容 CommonJS 的根本原因，在于缺少四个 Node.js 环境的变量，`module`、`exports`、`require`、`global`，只要提供这四个变量，浏览器就能加载 CommonJS 模块。
@@ -23,7 +82,12 @@
                 ```
             - 正常script标签加载的时候，浏览器会停止网页渲染
             - RequireJS 实现 js 文件的异步加载，避免网页失去响应，管理模块之间的依赖性，便于代码的编写和维护
-        - [demo code](./democode/requirejs-demo)
+        - AMD、CMD 区别
+          - AMD 先加载后执行
+          - CMD 懒加载
+        - ESM（EcmaScript Module）
+          - import、export
+        - [RequireJS demo code](./democode/requirejs-demo)
     - [什么是事件循环](https://github.com/creeperyang/blog/issues/26)
         - 所有任务都在主线程上执行，形成一个执行栈（ecs）
         - 主线程之外还存在一个任务队列（task queue），系统把异步任务放到任务队列中，然后主线程继续执行后续的任务
@@ -216,4 +280,3 @@
 
 - 2018.07.31
     - 👍 [乐意黎 JS根据useAgent来判断edge, ie, firefox, chrome, opera, safari 等浏览器的类型及版本](https://blog.csdn.net/aerchi/article/details/51697592)
-
