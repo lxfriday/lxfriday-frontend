@@ -1,7 +1,7 @@
 # 我的博客文章
 
 ## 2018.10.03
-- [onclick、addEventListener、attachEvent比较](./2018/10/03/onclick-addeventlistener-attachevent.md)
+- [onclick、addEventListener、attachEvent比较](../../web-knowledge-tree/onclick-addeventlistener-attachevent.md)
 
 ## 2018.09.03
 - [ToPrimitive 类型转换的处理方式](./2018/09/03/toPrimitive.md)
